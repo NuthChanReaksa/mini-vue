@@ -197,6 +197,7 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   (e: 'submit', user: UserRequest | UserUpdateRequest): void;
+  // (e: 'submit', user: UserRequest ): void;
   (e: 'cancel'): void;
 }>();
 

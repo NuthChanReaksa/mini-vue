@@ -1,0 +1,9 @@
+services:
+  app:
+    image: vue-vite-app
+    build: 
+      context: . 
+      dockerfile: Dockerfile 
+    pull_policy: build 
+    ports:
+      - "8080:80"

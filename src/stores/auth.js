@@ -22,7 +22,6 @@ export const useAuthStore = defineStore('auth', () => {
         if (!userId) {
             console.warn("Invalid user data, clearing localStorage.");
             logout();
-            
             return;
         }
         user.value = {
@@ -30,7 +29,7 @@ export const useAuthStore = defineStore('auth', () => {
             accessToken: token,
             refreshToken: refreshTokenValue
         };
-        isAuthenticated.value = true;
+        isAuthenticated.value = false;
         currentUser.value = parsedUserData;
     }
     // fetchUserProfile function should be defined before it's returned

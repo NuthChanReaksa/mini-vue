@@ -1,7 +1,7 @@
 import { useAuthStore } from '../stores/auth';
 import { useRouter } from 'vue-router';
 import UserForm from '../components/UserForm.vue';
-const { registerUser } = useAuthStore();
+const authStore = useAuthStore();
 const router = useRouter();
 async function handleRegister(user) {
     try {
@@ -23,10 +23,11 @@ async function handleRegister(user) {
             "monthlyIncomeRange": 1500,
             "studentCardId": "STU123456789",
             "roles": [
-                "USER"
+                "ADMIN"
             ]
         };
-        await registerUser(testingUserData)
+        console.log("User REQUEST data : ", testingUserData);
+        await authStore.registerUser(testingUserData)
             .then((response) => {
             console.log("Response : ", response);
             router.push("/");

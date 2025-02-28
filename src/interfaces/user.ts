@@ -40,6 +40,7 @@ export interface UserResponse {
 export interface UserUpdateRequest {
 
     fullName?: string;
+    username?: string ; 
     gender?: string;
     profileImage?: string;
     phoneNumber?: string;

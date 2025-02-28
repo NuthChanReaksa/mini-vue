@@ -37,7 +37,7 @@ export const useAuthStore = defineStore('auth', () => {
             refreshToken: refreshTokenValue
         };
 
-        isAuthenticated.value = false;
+        isAuthenticated.value = true;
         currentUser.value = parsedUserData;
     }
 
