@@ -20,10 +20,11 @@ import { useRouter } from 'vue-router';
 import UserForm from '../components/UserForm.vue';
 import type { UserRequest, UserUpdateRequest } from '../interfaces/user';
 
-const {registerUser} = useAuthStore();
+const  authStore= useAuthStore();
 const router = useRouter();
 
 async function handleRegister(user: UserRequest) {
+
   try {
 
     let  testingUserData = {
@@ -44,13 +45,14 @@ async function handleRegister(user: UserRequest) {
       "monthlyIncomeRange": 1500,
       "studentCardId": "STU123456789",
       "roles": [
-        "USER"
+        "ADMIN"
       ]
     }
-    await  registerUser(testingUserData as UserRequest )
+    console.log("User REQUEST data : ",testingUserData)
+    await  authStore.registerUser(testingUserData as UserRequest )
         .then((response)=> {
-          console.log("Response : ", response )
-          router.push("/");
+            console.log("Response : ", response )
+             router.push("/");
         })
         .catch(error => console.log("Handle exception error : " , error));
 

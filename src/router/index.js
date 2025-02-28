@@ -36,7 +36,7 @@ const router = createRouter({
 });
 router.beforeEach(async (to, _, next) => {
     const authStore = useAuthStore();
-    authStore.isAuthenticated = false;
+    // authStore.isAuthenticated = false;
     console.log("Auth Store : ", authStore.isAuthenticated);
     // Check if auth needs to be restored from storage
     // if (!authStore.isAuthenticated && localStorage.getItem('token')) {
